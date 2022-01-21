@@ -84,7 +84,7 @@ exports.deletePost = async (req, res, next) => {
         const post = await deletePostDB(postId);
         let comments = await getTable(TABLE_NAMES.comment);
         comments = comments.filter(comment => comment.postId !== postId);
-        await await updateTable(TABLE_NAMES.comment, comments);
+        await updateTable(TABLE_NAMES.comment, comments);
         return res.status(200).send({success: true, result: post});
     } catch (e) {
         return res.status(400).send({success: false, result: e.message});
